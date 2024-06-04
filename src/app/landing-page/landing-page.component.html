@@ -1,0 +1,44 @@
+<section class="hero">
+    <div class="hero-content">
+      <h1>Shop with a Purpose.</h1>
+      <p>Discover sustainable, on-demand products that make a difference.</p>
+      <button>Explore Now</button>
+    </div>
+    <div class="hero-image">
+      <img src="../../assets/data/images /vibrant-colors-blend-to-create-an-abstract-futuristic-landscape-otherworldly-shapes-in-the-backdro.jpeg" alt="Descriptive text for the image">
+    </div>
+  </section>
+
+  <section class="best-sellers">
+    <h2>Best Sellers</h2>
+    <div class="cards-container">
+      <div class="card" *ngFor="let product of bestSellers">
+        <img [src]="product.image" alt="{{product.name}}">
+        <h2>{{product.name}}</h2>
+        <p class="price">{{product.price | currency:'ZAR'}}</p>
+        <button class="buy-now">Buy Now</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="featured-section">
+    <div class="background-block">
+      <div class="cards-container" [style.transform]="'translateX(' + scrollPosition + '%)'">
+        <div class="card" *ngFor="let product of visibleProducts">
+          <img [src]="product.image" alt="{{product.name}}">
+          <h2>{{product.name}}</h2>
+          <p class="price">{{product.price | currency:'ZAR'}}</p>
+          <button class="buy-now">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-controls">
+      <button (click)="scrollLeft()">&lt;</button>
+      <div class="dots">
+        <span *ngFor="let dot of dots" [class.active]="dot === activeDot"></span>
+      </div>
+      <button (click)="scrollRight()">&gt;</button>
+    </div>
+  </section>
+  
+  
