@@ -20,12 +20,12 @@ export class LandingPageComponent implements OnInit {
   ];
 
   featuredProducts: Product[] = [
-    { name: 'Featured Product 1', price: 299.99, image: 'assets/images/featured1.jpg' },
-    { name: 'Featured Product 2', price: 399.99, image: 'assets/images/featured2.jpg' },
-    { name: 'Featured Product 3', price: 199.99, image: 'assets/images/featured3.jpg' },
-    { name: 'Featured Product 4', price: 299.99, image: 'assets/images/featured4.jpg' },
-    { name: 'Featured Product 5', price: 399.99, image: 'assets/images/featured5.jpg' },
-    { name: 'Featured Product 6', price: 199.99, image: 'assets/images/featured6.jpg' }
+    { name: 'Featured Product 1', price: 299.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { name: 'Featured Product 2', price: 399.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { name: 'Featured Product 3', price: 199.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { name: 'Featured Product 4', price: 299.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { name: 'Featured Product 5', price: 399.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { name: 'Featured Product 6', price: 199.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' }
   ];
 
   visibleProducts: Product[] = [];
