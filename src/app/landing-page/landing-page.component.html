@@ -1,16 +1,13 @@
 <section class="hero">
-    <div class="hero-content">
-      <h1>Shop with a Purpose.</h1>
-      <p>Discover sustainable, on-demand products that make a difference.</p>
-      <button>Explore Now</button>
-    </div>
-    <div class="hero-image">
-      <img src="../../assets/data/images /vibrant-colors-blend-to-create-an-abstract-futuristic-landscape-otherworldly-shapes-in-the-backdro.jpeg" alt="Descriptive text for the image">
-    </div>
-  </section>
+  <div class="hero-content">
+    <h1>Shop with a Purpose.</h1>
+    <p>Discover sustainable, on-demand products that make a difference.</p>
+    <button>Explore Now</button>
+  </div>
+</section>
 
   <section class="best-sellers">
-    <h2>Best Sellers</h2>
+    <h2 class="bs-h2">Best Sellers</h2>
     <div class="cards-container">
       <div class="card" *ngFor="let product of bestSellers">
         <img [src]="product.image" alt="{{product.name}}">
@@ -21,7 +18,67 @@
     </div>
   </section>
   
-  <section class="featured-section">
+
+
+  <section class="categories">
+    <h2>Categories</h2>
+    <div class="category">
+      <div class="category-block digital-products">
+        <img  class="category-img" src="../../assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg">
+        <h3>Digital Products</h3>
+        <p>Download a variety of digital goods including e-books, software, and digital art.</p>
+        <a href="/digital-products">Discover More</a>
+      </div>
+      <div class="category-block print-on-demand">
+        <img class="category-img" src="../../assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg">
+        <h3>Print on Demand</h3>
+        <p>Customize and order a range of products like apparel, accessories, and home decor.</p>
+        <a href="/print-on-demand">Discover More</a>
+      </div>
+      <div class="category-block other">
+        <img  class="category-img"  src="../../assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg">
+        <h3>Additional Category</h3>
+        <p>Explore other exciting products and services tailored to your needs.</p>
+        <a href="/other-category">Discover More</a>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="about-us">
+    <h2 class="about-us-heading">About Us</h2>
+    <div class="image-container">
+        <img src="../../assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg" alt="Old Magazine Style Image">
+        <p class="about-us-text">This section gives an overview of our journey, values, and mission, inspired by classic journalistic styles.</p>
+    </div>
+</section>
+
+<section class="why-us">
+    <h2 class="why-us-heading">Why Us</h2>
+    <div class="benefit-blocks">
+        <div class="benefit-block">
+            <h3>#1 Quality Products</h3>
+            <p>We offer top-quality products designed to meet the highest standards.</p>
+        </div>
+        <div class="benefit-block">
+            <h3>#2 Customization</h3>
+            <p>Our platform provides extensive customization options to suit your personal style.</p>
+        </div>
+        <div class="benefit-block">
+            <h3>#3 Eco-Friendly</h3>
+            <p>We prioritize sustainability with eco-friendly practices across our operations.</p>
+        </div>
+        <div class="benefit-block">
+            <h3>#4 Exceptional Support</h3>
+            <p>Our customer service team is dedicated to providing an outstanding shopping experience.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+  <!-- <section class="featured-section">
     <div class="background-block">
       <div class="cards-container" [style.transform]="'translateX(' + scrollPosition + '%)'">
         <div class="card" *ngFor="let product of visibleProducts">
@@ -35,10 +92,13 @@
     <div class="scroll-controls">
       <button (click)="scrollLeft()">&lt;</button>
       <div class="dots">
-        <span *ngFor="let dot of dots" [class.active]="dot === activeDot"></span>
+        <span *ngFor="let dot of dots; let i = index" [class.active]="i === activeDot" (click)="setActiveDot(i)"></span>
       </div>
       <button (click)="scrollRight()">&gt;</button>
     </div>
   </section>
+  
+   -->
+  
   
   

@@ -1,76 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+interface Product {
+  name: string;
+  price: number;
+  image: string;
+}
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent {
-  bestSellers = [
-    {
-      name: 'Product 1',
-      price: 299.99,
-      image: 'assets/images/image1.jpg'
-    },
-    {
-      name: 'Product 2',
-      price: 399.99,
-      image: 'assets/images/image2.jpg'
-    },
-    {
-      name: 'Product 3',
-      price: 199.99,
-      image: 'assets/images/image3.jpg'
-    },
-    {
-      name: 'Product 4',
-      price: 499.99,
-      image: 'assets/images/image4.jpg'
-    }
+export class LandingPageComponent implements OnInit {
+  bestSellers: Product[] = [
+    { name: 'Product 1', price: 299.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { name: 'Product 2', price: 399.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { name: 'Product 3', price: 199.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { name: 'Product 4', price: 499.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' }
   ];
 
-  featuredProducts = [
-    {
-      name: 'Featured Product 1',
-      price: 299.99,
-      image: 'assets/images/featured1.jpg'
-    },
-    {
-      name: 'Featured Product 2',
-      price: 399.99,
-      image: 'assets/images/featured2.jpg'
-    },
-    {
-      name: 'Featured Product 3',
-      price: 199.99,
-      image: 'assets/images/featured3.jpg'
-    }
+  featuredProducts: Product[] = [
+    { name: 'Featured Product 1', price: 299.99, image: 'assets/images/featured1.jpg' },
+    { name: 'Featured Product 2', price: 399.99, image: 'assets/images/featured2.jpg' },
+    { name: 'Featured Product 3', price: 199.99, image: 'assets/images/featured3.jpg' },
+    { name: 'Featured Product 4', price: 299.99, image: 'assets/images/featured4.jpg' },
+    { name: 'Featured Product 5', price: 399.99, image: 'assets/images/featured5.jpg' },
+    { name: 'Featured Product 6', price: 199.99, image: 'assets/images/featured6.jpg' }
   ];
 
+  visibleProducts: Product[] = [];
   scrollPosition = 0;
+  itemsPerPage = 3;  // Number of items to show per "page" of the slider
   activeDot = 0;
 
-  scrollLeft() {
-    if (this.scrollPosition > 0) {
-      this.scrollPosition -= 100;
-      this.activeDot--;
-    }
+  ngOnInit(): void {
+    this.updateVisibleProducts();
   }
 
-  scrollRight() {
-    if (this.scrollPosition < 200) { // Assuming each slide moves by 100%
-      this.scrollPosition += 100;
-      this.activeDot++;
+  updateVisibleProducts(): void {
+    const start = this.activeDot * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    this.visibleProducts = this.featuredProducts.slice(start, end);
+  }
+
+  scrollLeft(): void {
+    if (this.activeDot > 0) {
+      this.activeDot--;
+    } else {
+      this.activeDot = Math.ceil(this.featuredProducts.length / this.itemsPerPage) - 1;
     }
+    this.updateVisibleProducts();
+  }
+
+  scrollRight(): void {
+    if (this.activeDot < Math.ceil(this.featuredProducts.length / this.itemsPerPage) - 1) {
+      this.activeDot++;
+    } else {
+      this.activeDot = 0;
+    }
+    this.updateVisibleProducts();
   }
 
   get dots() {
-    return [0, 1, 2]; // Assuming 3 pairs of cards
+    return Array(Math.ceil(this.featuredProducts.length / this.itemsPerPage)).fill(0).map((_, i) => i);
   }
 
-  get visibleProducts() {
-    // Logic to determine which products to display based on scrollPosition
-    // Adjust as needed
-    return this.featuredProducts.slice(this.activeDot * 3, this.activeDot * 3 + 3);
+  setActiveDot(index: number): void {
+    this.activeDot = index;
+    this.updateVisibleProducts();
   }
 }
