@@ -1,5 +1,5 @@
 [build]
-   publish = "dist/futuryweb"
+   publish = "dist/futury-web"
    command = "npm run build"
 [redirects]
   # Example of a redirect rule
