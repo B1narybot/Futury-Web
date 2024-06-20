@@ -1,0 +1,16 @@
+[build]
+  publish = "build"  # Directory to publish after build
+  command = "npm run build"  # Command to run to build the site
+
+[redirects]
+  # Example of a redirect rule
+  from = "/old-path"
+  to = "/new-path"
+  status = 301  # Permanent redirect
+
+[headers]
+  # Example of setting custom headers for specific paths
+  "/.netlify/*" = [
+    "X-Content-Type-Options: nosniff",
+    "X-Robots-Tag: noindex, nofollow",
+  ]
