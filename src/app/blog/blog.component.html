@@ -1,1 +1,40 @@
-<p>blog works!</p>
+<section class="blog-page">
+    <div class="blog-header">
+      <h1>Our Blog</h1>
+      <p>Stay updated with the latest news, tips, and stories from Futury.com</p>
+    </div>
+    
+    <div class="blog-search">
+      <input type="text" placeholder="Search blog posts..." aria-label="Search blog posts">
+      <button>Search</button>
+    </div>
+    
+    <div class="blog-posts">
+      <div class="post" *ngFor="let post of blogPosts">
+        <img [src]="post.image" alt="{{post.title}}" class="">
+        <div class="post-content">
+          <h2>{{post.title}}</h2>
+          <p>{{post.excerpt}}</p>
+          <button (click)="readMore(post.id)">Read More</button>
+        </div>
+        <div class="social-share">
+          <button (click)="sharePost(post.id)">Share</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="comments-section">
+      <h2>Comments</h2>
+      <div class="comment-form">
+        <textarea placeholder="Leave a comment..." aria-label="Leave a comment"></textarea>
+        <button (click)="submitComment()">Submit</button>
+      </div>
+      <div class="comments-list">
+        <div class="comment" *ngFor="let comment of comments">
+          <p>{{comment.text}}</p>
+          <small>by {{comment.author}}</small>
+        </div>
+      </div>
+    </div>
+  </section>
+  
