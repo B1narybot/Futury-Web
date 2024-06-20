@@ -20,5 +20,5 @@ ng serve
 
 5. Open your web browser and navigate to `http://localhost:4200/` to view the application.
 
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/170d41cd-797c-4908-8d62-bca3a1ac1564/deploy-status)](https://app.netlify.com/sites/futuryweb/deploys)
 
