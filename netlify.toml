@@ -1,7 +1,6 @@
 [build]
-  publish = "build"  # Directory to publish after build
-  command = "npm run build"  # Command to run to build the site
-
+   publish = "dist/futuryweb"
+   command = "npm run build"
 [redirects]
   # Example of a redirect rule
   from = "/old-path"
