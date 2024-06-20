@@ -391,9 +391,35 @@
     }
 
     .best-sellers{
-      padding: 10px;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .hero {
+      background-size: cover;
+    }
+
+    .hero-content {
+      margin-top: 370px;
+    }
+
+    .card {
+      height: 335px;
+      width: 315px;
+    }
+
+    .card img{
+      height: 190px;
+    }
+
+    .banner-text{
+      padding-right: 10px;
+      font-size: 1.2rem;
     }
   }
+
 
   @media (min-width: 769px) and (max-width: 1024px) {
 

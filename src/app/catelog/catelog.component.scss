@@ -80,3 +80,17 @@
 .product-card .buy-now:hover {
     background-color: #0056b3;
 }
+
+
+
+@media (max-width: 768px) {
+    .product-cards {
+        flex-wrap: wrap;
+        
+    }
+
+    .product-card {
+        flex: 1 1 calc(33.33% - 20px); // Default state for larger screens
+        max-width: calc(47.33% - 20px);
+    }
+}

@@ -128,3 +128,18 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
   
+
+  @media (max-width: 768px){
+    .blog-page {
+      padding: 10px;
+    }
+
+    .post {
+      width: 85%;
+    }
+
+    .comment-form textarea {
+      width: 90%;
+
+    }
+  }

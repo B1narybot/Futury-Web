@@ -103,3 +103,30 @@
             }
         }
     }
+
+
+    @media (max-width: 768px) {
+        .contact-form {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .subscription, .contact-info {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .form-group input {
+            width: 90%; // Set width to 80% on smaller screens
+        }
+
+        .form-group textarea  {
+            width: 90%;
+        }
+
+        .form-group button {
+            width: 25%;
+        }
+    }
