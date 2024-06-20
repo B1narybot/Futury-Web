@@ -10,6 +10,7 @@ import { CatelogComponent } from './catelog/catelog.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { FormsModule } from '@angular/forms';
     CatelogComponent,
     BlogComponent,
     ContactComponent,
+    CartComponent,
+   
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { CatelogComponent } from './catelog/catelog.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'catelog', component: CatelogComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
+  {path: 'cart', component: CartComponent},
   { path: '**', redirectTo: '/home' }  // Wildcard route for handling 404 not found
 ];
 
