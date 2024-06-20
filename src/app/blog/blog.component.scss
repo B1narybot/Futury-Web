@@ -1,0 +1,130 @@
+.blog-page {
+    padding: 50px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .blog-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .blog-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .blog-header p {
+    font-size: 1.2rem;
+  }
+  
+  .blog-search {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .blog-search input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 70%;
+    max-width: 400px;
+    margin-right: 10px;
+  }
+  
+  .blog-search button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .post {
+    background: #f5f5f5;
+    margin: 15px;
+    width: 45%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .post img {
+    width: 20%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .post-content {
+    text-align: left;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .post-content p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .post-content button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .social-share {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .social-share button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .comments-section {
+    margin-top: 50px;
+  }
+  
+  .comments-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .comment-form {
+    margin-bottom: 30px;
+  }
+  
+  .comment-form textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .comment-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .comments-list {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
