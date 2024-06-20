@@ -1,0 +1,52 @@
+<div class="cart-container">
+    <div class="left-section">
+      <h2>Cart</h2>
+      <h3 *ngIf="cartItems.length === 0">Your cart is empty</h3>
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <img [src]="item.imgUrl" alt="{{item.name}}">
+        <div class="item-details">
+          <h3>{{ item.name }}</h3>
+          <p class="price">{{ item.price | currency }}</p>
+          <h4>{{ item.type }}</h4>
+          <div class="item-options">
+            <p>Size: {{ item.size }}</p>
+            <p>Quantity:
+              <select [(ngModel)]="item.quantity" (change)="updateQuantity(item, item.quantity)">
+                <option *ngFor="let qty of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="qty">{{ qty }}</option>
+              </select>
+            </p>
+          </div>
+          <div class="item-actions">
+            <span class="heart-icon" (click)="addToCollection(item)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+              </svg>
+            </span>
+            <span class="bin-icon" (click)="removeItem(item)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="right-section">
+      <h2>Summary</h2>
+      <div class="summary-item">
+        <span>Subtotal</span>
+        <span>{{ getSubtotal() | currency }}</span>
+      </div>
+      <div class="summary-item">
+        <span>Delivery</span>
+        <span>{{ deliveryTime }}</span>
+      </div>
+      <div class="summary-item">
+        <span>Total</span>
+        <span>{{ getTotal() | currency }}</span>
+      </div>
+      <button class="checkout-button">Proceed to Checkout</button>
+    </div>
+  </div>
+  
