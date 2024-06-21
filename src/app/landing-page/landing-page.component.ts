@@ -33,8 +33,13 @@ export class LandingPageComponent implements OnInit {
   itemsPerPage = 3;  // Number of items to show per "page" of the slider
   activeDot = 0;
 
+  cartItems: any[] = [];
+
+  constructor() { }
+
   ngOnInit(): void {
     this.updateVisibleProducts();
+    this.loadCartItems();
   }
 
   updateVisibleProducts(): void {
@@ -68,5 +73,25 @@ export class LandingPageComponent implements OnInit {
   setActiveDot(index: number): void {
     this.activeDot = index;
     this.updateVisibleProducts();
+  }
+
+  loadCartItems() {
+    const savedCartItems = localStorage.getItem('cartItems');
+    if (savedCartItems) {
+      this.cartItems = JSON.parse(savedCartItems);
+    }
+  }
+
+  saveCartItems() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+
+  addToCart(product: Product) {
+    const uniqueId = `${product.name}-${new Date().getTime()}`;
+    const newItem = { ...product, uniqueId, quantity: 1 };
+
+    this.cartItems.push(newItem);
+    this.saveCartItems();
+    alert(`${product.name} has been added to the cart!`);
   }
 }

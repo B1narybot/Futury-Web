@@ -6,27 +6,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  cartItems: any[] = []; // Replace with your actual cart items type
-  deliveryTime = '0 days'; // Example delivery time
+  cartItems: any[] = [];
+  deliveryTime = '0 days';
 
   constructor() { }
 
   ngOnInit(): void {
-    // Fetch cart items from a service or local storages
-    this.cartItems = this.getCartItems();
+    this.loadCartItems();
   }
 
-  getCartItems() {
-    // Implement your logic to get cart items
-    return [];
+  loadCartItems() {
+    const savedCartItems = localStorage.getItem('cartItems');
+    if (savedCartItems) {
+      this.cartItems = JSON.parse(savedCartItems);
+    }
+  }
+
+  saveCartItems() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 
   removeItem(item: any) {
-    this.cartItems = this.cartItems.filter(cartItem => cartItem.id !== item.id);
+    this.cartItems = this.cartItems.filter(cartItem => cartItem.uniqueId !== item.uniqueId);
+    this.saveCartItems();
   }
 
   addToCollection(item: any) {
-    // Implement logic to add item to collection
     console.log('Add to collection:', item);
   }
 
@@ -40,9 +45,14 @@ export class CartComponent implements OnInit {
   }
 
   updateQuantity(item: any, newQuantity: number) {
-    const cartItem = this.cartItems.find(cartItem => cartItem.id === item.id);
+    const cartItem = this.cartItems.find(cartItem => cartItem.uniqueId === item.uniqueId);
     if (cartItem) {
       cartItem.quantity = newQuantity;
     }
+    this.saveCartItems();
+  }
+
+  checkout() {
+    console.log('Proceed to checkout');
   }
 }
