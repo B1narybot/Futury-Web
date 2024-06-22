@@ -1,0 +1,18 @@
+<div class="custom-alert-backdrop">
+    <div class="custom-alert-box">
+      <h5>Added to Cart <span class="check-mark">&#10004;</span></h5>
+      <button class="close-btn" (click)="onClose()">&#10006;</button>
+      <img [src]="product?.imgUrl" alt="{{product?.name}}">
+      <div class="product-details">
+        <h3>{{ product?.name }}</h3>
+        <h3>{{ product?.type }}</h3>
+        <h3>Size: {{ product?.size }}</h3>
+        <h3>Price: {{ product?.price | currency:'ZAR' }}</h3>
+      </div>
+      <div class="buttons">
+        <button class="view-cart-btn" (click)="onViewCart()">View Cart</button>
+        <button class="checkout-btn" (click)="onCheckout()">Checkout</button>
+      </div>
+    </div>
+  </div>
+  

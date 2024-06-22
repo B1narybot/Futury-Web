@@ -10,7 +10,7 @@
     <h2 class="bs-h2">Best Sellers</h2>
     <div class="cards-container">
       <div class="card" *ngFor="let product of bestSellers">
-        <img [src]="product.image" alt="{{product.name}}">
+        <img [src]="product.imgUrl" alt="{{product.name}}">
         <h2>{{product.name}}</h2>
         <p class="price">{{product.price | currency:'ZAR'}}</p>
         <button class="buy-now" (click)="addToCart(product)">Buy Now</button>
@@ -79,3 +79,9 @@
 </section>
   
   
+<app-custom-alert *ngIf="customAlertVisible" 
+                  [product]="customAlertProduct" 
+                  (close)="closeCustomAlert()"
+                  (viewCart)="goToCart()"
+                  (checkout)="goToCheckout()">
+</app-custom-alert>

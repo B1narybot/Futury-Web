@@ -11,6 +11,7 @@ import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
+import { CustomAlertComponent } from './custom-alert/custom-alert.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CartComponent } from './cart/cart.component';
     BlogComponent,
     ContactComponent,
     CartComponent,
+    CustomAlertComponent,
    
   ],
   imports: [

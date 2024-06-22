@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // Import Router
 
 interface Product {
+  id: number;
   name: string;
   price: number;
-  image: string;
+  type: string;
+  size: string;
+  imgUrl: string;
 }
 
 @Component({
@@ -13,19 +17,19 @@ interface Product {
 })
 export class LandingPageComponent implements OnInit {
   bestSellers: Product[] = [
-    { name: 'Product 1', price: 299.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
-    { name: 'Product 2', price: 399.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
-    { name: 'Product 3', price: 199.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
-    { name: 'Product 4', price: 499.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' }
+    { id: 1, name: 'Product 1', price: 299.99, type: 'Type A', size: 'M', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { id: 2, name: 'Product 2', price: 399.99, type: 'Type B', size: 'L', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { id: 3, name: 'Product 3', price: 199.99, type: 'Type C', size: 'S', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { id: 4, name: 'Product 4', price: 499.99, type: 'Type D', size: 'XL', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' }
   ];
 
   featuredProducts: Product[] = [
-    { name: 'Featured Product 1', price: 299.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
-    { name: 'Featured Product 2', price: 399.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
-    { name: 'Featured Product 3', price: 199.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
-    { name: 'Featured Product 4', price: 299.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
-    { name: 'Featured Product 5', price: 399.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
-    { name: 'Featured Product 6', price: 199.99, image: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' }
+    { id: 5, name: 'Featured Product 1', price: 299.99, type: 'Type E', size: 'M', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { id: 6, name: 'Featured Product 2', price: 399.99, type: 'Type F', size: 'L', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { id: 7, name: 'Featured Product 3', price: 199.99, type: 'Type G', size: 'S', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { id: 8, name: 'Featured Product 4', price: 299.99, type: 'Type H', size: 'XL', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { id: 9, name: 'Featured Product 5', price: 399.99, type: 'Type I', size: 'M', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
+    { id: 10, name: 'Featured Product 6', price: 199.99, type: 'Type J', size: 'L', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' }
   ];
 
   visibleProducts: Product[] = [];
@@ -34,8 +38,10 @@ export class LandingPageComponent implements OnInit {
   activeDot = 0;
 
   cartItems: any[] = [];
+  customAlertVisible = false;
+  customAlertProduct!: Product;
 
-  constructor() { }
+  constructor(private router: Router) { } // Inject Router
 
   ngOnInit(): void {
     this.updateVisibleProducts();
@@ -87,11 +93,31 @@ export class LandingPageComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    const uniqueId = `${product.name}-${new Date().getTime()}`;
+    const uniqueId = `${product.id}-${new Date().getTime()}`;
     const newItem = { ...product, uniqueId, quantity: 1 };
 
     this.cartItems.push(newItem);
     this.saveCartItems();
-    alert(`${product.name} has been added to the cart!`);
+    this.showCustomAlert(product);
+  }
+
+  showCustomAlert(product: Product) {
+    this.customAlertProduct = product;
+    this.customAlertVisible = true;
+    setTimeout(() => this.closeCustomAlert(), 5000); // Auto close after 5 seconds
+  }
+
+  closeCustomAlert() {
+    this.customAlertVisible = false;
+  }
+
+  goToCart() {
+    this.router.navigate(['/cart']); // Navigate to cart page
+    this.closeCustomAlert();
+  }
+
+  goToCheckout() {
+    this.router.navigate(['/checkout']); // Navigate to checkout page
+    this.closeCustomAlert();
   }
 }

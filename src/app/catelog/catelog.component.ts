@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-interface Product {
+export interface Product {  // Ensure the Product interface is exported
   id: number;
   name: string;
   price: number;
@@ -25,10 +25,11 @@ export class CatelogComponent implements OnInit {
     { id: 6, name: 'Product 6', price: 180, type: 'Type F', size: 'L', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
     { id: 7, name: 'Product 7', price: 220, type: 'Type G', size: 'S', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' },
     { id: 8, name: 'Product 8', price: 280, type: 'Type H', size: 'XL', imgUrl: 'assets/data/images /professional-display-image-for-digital-products-simple-clean-cut-design-aesthetic-use-of-minimalis.jpeg' }
-    // Add more products as needed
   ];
 
   cartItems: any[] = [];
+  customAlertVisible = false;
+  customAlertProduct: Product | undefined;
 
   constructor(private router: Router) { }
 
@@ -49,14 +50,24 @@ export class CatelogComponent implements OnInit {
 
   addToCart(product: Product) {
     const uniqueId = `${product.id}-${new Date().getTime()}`;
-    const newItem = { ...product, uniqueId, quantity: 1 };  // Ensure all necessary fields are included
+    const newItem = { ...product, uniqueId, quantity: 1 };
 
     this.cartItems.push(newItem);
     this.saveCartItems();
-    alert(`${product.name} has been added to the cart!`);
+
+    this.customAlertProduct = product;
+    this.customAlertVisible = true;
+  }
+
+  closeCustomAlert() {
+    this.customAlertVisible = false;
   }
 
   goToCart() {
     this.router.navigate(['/cart']);
+  }
+
+  goToCheckout() {
+    this.router.navigate(['/checkout']);
   }
 }

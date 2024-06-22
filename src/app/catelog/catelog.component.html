@@ -44,3 +44,12 @@
             </div>
         </div>
     </div>
+
+    <!-- Include the Custom Alert Component -->
+    <app-custom-alert *ngIf="customAlertVisible" 
+                      [product]="customAlertProduct" 
+                      (close)="closeCustomAlert()"
+                      (viewCart)="goToCart()"
+                      (checkout)="goToCheckout()">
+    </app-custom-alert>
+</div>
