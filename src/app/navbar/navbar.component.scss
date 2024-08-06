@@ -7,11 +7,12 @@ body, ul {
 
 
 .top-bar {
-    background-color: #333;
+    background-color: #0C134F;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     font-size: 14px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -28,6 +29,7 @@ body, ul {
     align-items: center;
     margin: 0 auto;
     padding: 10px 20px;
+    background-color: #7900FF;
 }
 
 .logo a {
@@ -42,6 +44,7 @@ body, ul {
     padding-right: 0;
     flex-grow: 1;
     justify-content: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .nav-links li {
@@ -50,8 +53,8 @@ body, ul {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
-    font-size: 20px;
+    color: white;
+    font-size: 15px;
     transition: color 0.3s;
     font-weight: bolder;
 }
@@ -66,7 +69,7 @@ body, ul {
 
 .nav-btn {
     text-decoration: none;
-    color: #333;
+    color: white;
     font-size: 20px;
     margin-left: 20px;
     transition: color 0.3s;
