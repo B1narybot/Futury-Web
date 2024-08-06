@@ -1,6 +1,6 @@
 /* Footer Section */
 .footer {
-    background: #333;
+    background-color: #7900FF;
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -57,7 +57,7 @@
   
   /* Copyright Section */
   .footer-bar {
-    background: #222;
+    background-color: #0C134F;
     color: #fff;
     text-align: center;
     padding: 10px 0;
@@ -70,6 +70,10 @@
     color: #ff6347;
   }
   
+  .footer-logo img{
+    height: 100px !important;
+    width: 150px !important;
+  }
   /* Responsive Styles */
   @media (max-width: 768px) {
     .footer-content {

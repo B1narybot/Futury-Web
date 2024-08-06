@@ -122,9 +122,10 @@ body, ul {
     top: 130px;
     left: 0;
     width: 100%;
-    background-color: #f8f8f8;
+    background-color:#7900FF;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     animation: slideIn 0.3s forwards;
+
 }
 
 #menu-toggle:checked ~ .nav-links li {
@@ -132,6 +133,7 @@ body, ul {
     text-decoration: underline;
     padding-left: 23px;
     text-align: left;
+    text-decoration: none;
 }
 
 @keyframes slideIn {

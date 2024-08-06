@@ -65,7 +65,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 0 20px;
     overflow-x: auto; /* Enable horizontal scrolling */
   }
@@ -445,3 +445,5 @@
 
   }
 
+
+  
