@@ -539,8 +539,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100vh; /* Full viewport height */
+  height: 60vh; /* Adjusted viewport height */
   overflow: hidden;
+  border: 1px solid #ddd; /* Light border around the hero section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #fff; /* White background for the hero section */
 }
 
 .C-hero-text {
@@ -554,7 +558,7 @@
 }
 
 .C-hero-text h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -571,26 +575,81 @@
   font-size: 1.1rem;
   text-decoration: none;
   border-radius: 5px;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  width: 56px;
+  height: 20px;
 }
 
 .explore-button:hover {
   background-color: #0056b3; /* Darker shade for hover effect */
   transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
 
 .C-hero-image {
   flex: 1;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Add padding to the image container */
+  height: 275px;
 }
 
 .C-hero-image img {
   width: 100%;
-  height: 100%;
+  height: auto; /* Maintain aspect ratio */
   object-fit: cover;
-  transition: transform 0.5s;
+  transition: transform 0.5s, box-shadow 0.5s;
+  border-radius: 10px; /* Rounded corners for the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for the image */
 }
 
 .C-hero-image img:hover {
   transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .C-hero {
+    flex-direction: column;
+    height: auto; /* Adjust height for column layout */
+  }
+
+  .C-hero-text {
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .C-hero-text h1 {
+    font-size: 2.66rem; /* Reduce font size by 5% */
+  }
+
+  .C-hero-text p {
+    font-size: 1.14rem; /* Reduce font size by 5% */
+  }
+
+  .explore-button {
+    font-size: 1.045rem; /* Reduce font size by 5% */
+    padding: 12px 24px; /* Adjust padding for smaller screens */
+  }
+
+  .C-hero-image {
+    height: auto; /* Auto height for column layout */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+}
+
+.E-Cate-Button {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  color:#0056b3; /* Dark text color */
+  background-color: #e0e0e0; /* Light gray background */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Slightly rounded corners */
+  transition: background-color 0.2s, border-color 0.2s; /* Smooth transitions */
+  width: 100px;
 }
