@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // Import Router
+import { Router, NavigationEnd } from '@angular/router'; // Import Router
+
 
 interface Product {
   id: number;
